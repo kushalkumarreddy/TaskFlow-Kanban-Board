@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "name": "Kushal",
+      "email": "kushalkumarreddykona@gmail.com",
+      "password": "12345678",
+      "createdAt": "2026-11-15T02:23:58.530Z",
+      "id": "zsODh-y3QrA"
+    }
+  ],
+  "boards": [
+    {
+      "name": "Testing1",
+      "description": "Test board",
+      "color": "#315EFB",
+      "userId": "zsODh-y3QrA",
+      "createdAt": "2026-11-15T02:37:12.820Z",
+      "updatedAt": "2026-11-15T02:37:12.820Z",
+      "id": "2dyIc1jtbjQ"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "check layout",
+      "description": "check",
+      "priority": "High",
+      "dueDate": "2026-11-16",
+      "category": "",
+      "boardId": "2dyIc1jtbjQ",
+      "userId": "zsODh-y3QrA",
+      "status": "Review",
+      "createdAt": "2026-11-15T02:51:24.965Z",
+      "updatedAt": "2026-11-15T07:24:49.769Z",
+      "id": "M_2-CfNIc50"
+    },
+    {
+      "title": "check css",
+      "description": "",
+      "priority": "Medium",
+      "dueDate": "",
+      "category": "",
+      "boardId": "2dyIc1jtbjQ",
+      "userId": "zsODh-y3QrA",
+      "status": "In Progress",
+      "createdAt": "2026-11-15T02:51:43.491Z",
+      "updatedAt": "2026-11-15T07:33:12.657Z",
+      "id": "sKBEsH4jcIk"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "boardId": "2dyIc1jtbjQ",
+      "title": "deploy",
+      "description": "deploy app",
+      "priority": "High",
+      "dueDate": "2026-11-16",
+      "category": "deployment",
+      "status": "Completed",
+      "createdAt": "2026-11-15T08:00:33.998Z",
+      "updatedAt": "2026-11-15T08:00:48.155Z",
+      "id": "WRypQ9AOuMg"
+    }
+  ],
+  "activities": [
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"check css\" from In Progress to To Do.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "sKBEsH4jcIk",
+      "taskTitle": "check css",
+      "createdAt": "2026-11-15T07:32:59.016Z",
+      "id": "_hc-7iXCZkE"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"check css\" from To Do to In Progress.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "sKBEsH4jcIk",
+      "taskTitle": "check css",
+      "createdAt": "2026-11-15T07:33:00.513Z",
+      "id": "xBgi6fox388"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"check css\" from In Progress to Completed.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "sKBEsH4jcIk",
+      "taskTitle": "check css",
+      "createdAt": "2026-11-15T07:33:02.765Z",
+      "id": "Jzttg3F95FU"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"check css\" from Completed to In Progress.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "sKBEsH4jcIk",
+      "taskTitle": "check css",
+      "createdAt": "2026-11-15T07:33:04.320Z",
+      "id": "DABD8bbtMyA"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"check css\" from In Progress to Review.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "sKBEsH4jcIk",
+      "taskTitle": "check css",
+      "createdAt": "2026-11-15T07:33:11.096Z",
+      "id": "m1tf9weeU0I"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"check css\" from Review to In Progress.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "sKBEsH4jcIk",
+      "taskTitle": "check css",
+      "createdAt": "2026-11-15T07:33:12.663Z",
+      "id": "hofeI-C4lyA"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task created",
+      "description": "Created task \"deploy\" in \"Testing1\".",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "WRypQ9AOuMg",
+      "taskTitle": "deploy",
+      "createdAt": "2026-11-15T08:00:34.013Z",
+      "id": "1pAbVAvonFM"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"deploy\" from To Do to Completed.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "WRypQ9AOuMg",
+      "taskTitle": "deploy",
+      "createdAt": "2026-11-15T08:00:48.165Z",
+      "id": "OkJsCF3C_IQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
