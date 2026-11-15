@@ -6,7 +6,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 10000
+  timeout: 15000
 });
 
 api.interceptors.response.use(
@@ -15,9 +15,9 @@ api.interceptors.response.use(
     if (error.code === 'ECONNABORTED') {
       console.error('API request timed out.');
     } else if (!error.response) {
-      console.error(
-        'Cannot connect to the API. Check whether JSON Server is running.'
-      );
+      console.error('Unable to connect to backend.');
+    } else {
+      console.error('API Error:', error.response.status);
     }
 
     return Promise.reject(error);
