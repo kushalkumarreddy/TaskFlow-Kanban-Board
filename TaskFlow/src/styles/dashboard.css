@@ -1,0 +1,522 @@
+
+/* =========================================
+   DASHBOARD GENERAL
+========================================= */
+
+.dashboard-page {
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.dashboard-welcome-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.dashboard-welcome-header h3 {
+  color: #101828;
+  font-size: 26px;
+}
+
+.dashboard-date {
+  color: #667085;
+  font-size: 12px;
+}
+
+.dashboard-create-btn {
+  border-radius: 9px;
+  padding: 11px 18px;
+  white-space: nowrap;
+}
+
+/* =========================================
+   STATISTICS CARDS
+========================================= */
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 13px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.06);
+}
+
+.stat-title {
+  font-size: 13px;
+  color: #667085;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.stat-value {
+  color: #101828;
+  font-size: 29px;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.stat-description {
+  color: #98a2b3;
+  font-size: 11px;
+  margin-top: 13px;
+}
+
+.stat-icon {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  font-size: 20px;
+}
+
+.stat-icon.blue {
+  background: #eef2ff;
+  color: #315efb;
+}
+
+.stat-icon.purple {
+  background: #f3e8ff;
+  color: #9333ea;
+}
+
+.stat-icon.orange {
+  background: #fff1e6;
+  color: #ea580c;
+}
+
+.stat-icon.cyan {
+  background: #e0f7fa;
+  color: #0891b2;
+}
+
+.stat-icon.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.stat-icon.red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* =========================================
+   DASHBOARD PANELS
+========================================= */
+
+.dashboard-panel {
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 13px;
+  padding: 22px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 23px;
+}
+
+.panel-header h5 {
+  color: #202938;
+  font-size: 16px;
+}
+
+.panel-header p {
+  font-size: 12px;
+}
+
+/* =========================================
+   PRODUCTIVITY OVERVIEW
+========================================= */
+
+.productivity-content {
+  padding-top: 5px;
+}
+
+.productivity-percentage {
+  color: #315efb;
+  font-size: 39px;
+  font-weight: 800;
+}
+
+.productivity-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef2ff;
+  color: #315efb;
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.productivity-progress {
+  height: 11px;
+  background: #eef2f6;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.productivity-progress .progress-bar {
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+/* =========================================
+   QUICK ACTIONS
+========================================= */
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.quick-action {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 12px;
+  background: #f8faff;
+  border: 1px solid #eaecf0;
+  border-radius: 10px;
+  color: #344054;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.quick-action i {
+  color: #315efb;
+  font-size: 19px;
+}
+
+.quick-action:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #315efb;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   RECENT TASKS
+========================================= */
+
+.recent-task-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f1f4;
+}
+
+.recent-task-item:last-child {
+  border-bottom: none;
+}
+
+.recent-task-info {
+  min-width: 0;
+}
+
+.recent-task-info h6 {
+  color: #202938;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.recent-task-info small {
+  font-size: 11px;
+}
+
+.recent-task-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.recent-task-meta small {
+  font-size: 10px;
+}
+
+.task-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-todo {
+  background: #eef2ff;
+  color: #315efb;
+}
+
+.status-progress {
+  background: #fff1e6;
+  color: #ea580c;
+}
+
+.status-review {
+  background: #e0f7fa;
+  color: #0891b2;
+}
+
+.status-completed {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status-default {
+  background: #f2f4f7;
+  color: #475467;
+}
+
+/* =========================================
+   UPCOMING DEADLINES
+========================================= */
+
+.deadline-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.deadline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f1f4;
+}
+
+.deadline-item:last-child {
+  border-bottom: none;
+}
+
+.deadline-date {
+  width: 39px;
+  height: 39px;
+  min-width: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef2ff;
+  border-radius: 9px;
+  font-size: 18px;
+}
+
+.deadline-item h6 {
+  color: #202938;
+  font-size: 12px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.deadline-item small {
+  font-size: 11px;
+}
+
+.deadline-badge {
+  font-size: 10px;
+  padding: 5px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.deadline-upcoming {
+  background: #eef2ff;
+  color: #315efb;
+}
+
+.deadline-overdue {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* =========================================
+   EMPTY STATES
+========================================= */
+
+.dashboard-empty {
+  text-align: center;
+  padding: 30px 12px;
+}
+
+.dashboard-empty > i {
+  font-size: 32px;
+  color: #98a2b3;
+}
+
+.dashboard-empty h6 {
+  margin-top: 13px;
+  color: #344054;
+  font-weight: 700;
+}
+
+.dashboard-empty p {
+  font-size: 12px;
+  color: #98a2b3;
+  margin-bottom: 0;
+}
+
+.dashboard-first-task {
+  text-align: center;
+  padding: 35px 20px;
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 13px;
+  margin-top: 20px;
+}
+
+.dashboard-first-task > i {
+  color: #315efb;
+  font-size: 40px;
+}
+
+.dashboard-first-task p {
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 12px auto 20px;
+}
+
+/* =========================================
+   LOADING AND ERROR STATES
+========================================= */
+
+.dashboard-loading,
+.dashboard-error {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dashboard-error {
+  padding: 25px;
+}
+
+.dashboard-error p {
+  max-width: 450px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 991px) {
+
+  .stat-value {
+    font-size: 26px;
+  }
+
+  .dashboard-panel {
+    padding: 19px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .dashboard-welcome-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-welcome-header h3 {
+    font-size: 22px;
+  }
+
+  .dashboard-create-btn {
+    width: 100%;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-title {
+    font-size: 11px;
+  }
+
+  .stat-value {
+    font-size: 25px;
+  }
+
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+
+  .stat-description {
+    font-size: 10px;
+  }
+
+  .dashboard-panel {
+    padding: 17px;
+  }
+
+  .productivity-percentage {
+    font-size: 33px;
+  }
+
+  .recent-task-item {
+    align-items: flex-start;
+  }
+
+  .recent-task-meta {
+    max-width: 48%;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+
+  .deadline-item {
+    gap: 8px;
+  }
+
+  .deadline-badge {
+    font-size: 9px;
+    padding: 4px 6px;
+  }
+
+}

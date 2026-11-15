@@ -1,0 +1,180 @@
+
+/* =========================================
+   ACTIVITY HISTORY
+========================================= */
+
+.activity-page,
+.settings-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.activity-stat-card,
+.activity-history-card,
+.settings-card {
+  background: #ffffff;
+  border: 1px solid #edf0f5 !important;
+  border-radius: 14px;
+}
+
+.activity-filter {
+  width: 165px;
+  font-size: 13px;
+  border-color: #e4e7ec;
+}
+
+.activity-timeline {
+  position: relative;
+}
+
+.activity-date-group {
+  margin-bottom: 30px;
+}
+
+.activity-date-heading {
+  color: #667085;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.activity-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 42px;
+  bottom: 0;
+  width: 1px;
+  background: #e4e7ec;
+}
+
+.activity-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 11px;
+  font-size: 17px;
+}
+
+.activity-primary {
+  color: #315efb;
+  background: #eef2ff;
+}
+
+.activity-success {
+  color: #039855;
+  background: #ecfdf3;
+}
+
+.activity-danger {
+  color: #d92d20;
+  background: #fef3f2;
+}
+
+.activity-info {
+  color: #0086a8;
+  background: #e6faff;
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.activity-content strong {
+  color: #202938;
+  font-size: 13px;
+}
+
+.activity-content p {
+  line-height: 1.6;
+  margin-top: 5px;
+}
+
+/* =========================================
+   SETTINGS
+========================================= */
+
+.settings-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #eef2ff;
+  color: #315efb;
+  font-size: 24px;
+  font-weight: 750;
+}
+
+.settings-card .form-control {
+  min-height: 42px;
+  background: #f9fafb;
+  border-color: #eaecf0;
+  font-size: 13px;
+}
+
+.settings-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.settings-option h6 {
+  color: #344054;
+  font-size: 13px;
+}
+
+.settings-option p {
+  line-height: 1.5;
+}
+
+.settings-option .form-check-input {
+  width: 40px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.settings-option .form-check-input:checked {
+  background-color: #315efb;
+  border-color: #315efb;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 575px) {
+  .activity-content > .d-flex {
+    flex-direction: column;
+  }
+
+  .activity-filter {
+    width: 100%;
+  }
+
+  .settings-card .card-body {
+    padding: 20px !important;
+  }
+
+  .settings-option {
+    gap: 12px;
+  }
+}

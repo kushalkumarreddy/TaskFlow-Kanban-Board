@@ -1,0 +1,428 @@
+
+/* =========================================
+   TASKFLOW APPLICATION LAYOUT
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* =========================================
+   DESKTOP SIDEBAR
+========================================= */
+
+.desktop-sidebar {
+  display: flex !important;
+  flex: 0 0 260px;
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #ffffff;
+  border-right: 1px solid #eaecf0;
+  z-index: 100;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 25px 18px;
+}
+
+.sidebar-brand {
+  padding: 5px 10px 35px;
+}
+
+.sidebar-brand a {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-decoration: none;
+}
+
+.sidebar-brand i {
+  font-size: 25px;
+}
+
+.sidebar-label {
+  color: #98a2b3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding-left: 12px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 14px;
+  color: #667085;
+  text-decoration: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link i {
+  font-size: 18px;
+}
+
+.sidebar-link:hover {
+  background: #f5f7ff;
+  color: #315efb;
+}
+
+.sidebar-link.active {
+  background: #eef2ff;
+  color: #315efb;
+  font-weight: 600;
+}
+
+/* =========================================
+   SIDEBAR USER PROFILE
+========================================= */
+
+.sidebar-user {
+  padding: 18px 5px 5px;
+  margin-top: auto;
+  border-top: 1px solid #eaecf0;
+}
+
+.user-avatar,
+.topbar-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  background: #e9efff;
+  color: #315efb;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.sidebar-user h6 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #202938;
+}
+
+.sidebar-user small {
+  font-size: 11px;
+}
+
+.sidebar-user .btn {
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* =========================================
+   MAIN APPLICATION AREA
+========================================= */
+
+.app-main {
+  flex: 1 1 auto;
+  width: calc(100% - 260px);
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1 0 auto;
+  width: 100%;
+  min-width: 0;
+  padding: 28px 30px;
+  background: #f5f7fb;
+}
+
+.app-content-inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  width: 100%;
+  height: 76px;
+  min-height: 76px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.app-topbar h5 {
+  font-size: 19px;
+  color: #202938;
+  margin-bottom: 0;
+}
+
+.app-topbar small {
+  font-size: 12px;
+}
+
+.topbar-date {
+  color: #667085;
+  font-size: 13px;
+}
+
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
+  border-left: 1px solid #eaecf0;
+}
+
+.topbar-profile h6 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.topbar-avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  font-size: 14px;
+}
+
+.sidebar-toggle {
+  border: 1px solid #eaecf0;
+  color: #344054;
+  background: #ffffff;
+}
+
+.sidebar-toggle:hover {
+  background: #f5f7ff;
+  color: #315efb;
+}
+
+/* =========================================
+   MOBILE SIDEBAR
+========================================= */
+
+.mobile-sidebar {
+  width: 280px !important;
+  max-width: 85vw;
+  border: none;
+}
+
+.mobile-sidebar .offcanvas-header {
+  border-bottom: 1px solid #eaecf0;
+  padding: 18px 20px;
+}
+
+.mobile-sidebar .offcanvas-title {
+  font-weight: 800;
+  color: #315efb;
+}
+
+.mobile-sidebar .offcanvas-body {
+  overflow-y: auto;
+}
+
+.mobile-sidebar .sidebar-content {
+  min-height: 100%;
+}
+
+/* =========================================
+   DASHBOARD WELCOME
+========================================= */
+
+.welcome-section h3 {
+  color: #101828;
+  font-size: 26px;
+}
+
+.welcome-section p {
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.welcome-card {
+  border-radius: 15px;
+}
+
+.welcome-icon {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 18px;
+  background: #eef2ff;
+  color: #315efb;
+  font-size: 35px;
+}
+
+.welcome-description {
+  max-width: 500px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.welcome-card .btn {
+  border-radius: 8px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.layout-info-card {
+  height: 100%;
+  background: #ffffff;
+  padding: 23px;
+  border-radius: 12px;
+  border: 1px solid #eaecf0;
+  transition: 0.3s ease;
+}
+
+.layout-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.06);
+}
+
+.layout-info-card i {
+  font-size: 26px;
+}
+
+.layout-info-card h6 {
+  font-size: 14px;
+}
+
+.layout-info-card p {
+  line-height: 1.7;
+}
+
+/* =========================================
+   COMING SOON PAGE
+========================================= */
+
+.coming-soon-page {
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coming-soon-card {
+  max-width: 480px;
+  width: 100%;
+  padding: 40px 25px;
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+}
+
+.coming-soon-icon {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 18px;
+  background: #eef2ff;
+  color: #315efb;
+  font-size: 32px;
+}
+
+/* =========================================
+   TABLET AND MOBILE
+========================================= */
+
+@media (max-width: 991.98px) {
+  .desktop-sidebar {
+    display: none !important;
+  }
+
+  .app-main {
+    width: 100%;
+  }
+
+  .app-content {
+    padding: 22px;
+  }
+
+  .app-topbar {
+    padding: 0 22px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .app-content {
+    padding: 18px 14px;
+  }
+
+  .app-topbar {
+    height: 70px;
+    min-height: 70px;
+    padding: 0 14px;
+  }
+
+  .app-topbar h5 {
+    font-size: 16px;
+  }
+
+  .app-topbar small {
+    font-size: 10px;
+  }
+
+  .topbar-profile {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .welcome-section h3 {
+    font-size: 21px;
+  }
+
+  .welcome-card .card-body {
+    padding: 25px 16px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-content {
+    padding: 14px 10px;
+  }
+
+  .app-topbar {
+    padding: 0 10px;
+  }
+
+  .topbar-avatar {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+}
