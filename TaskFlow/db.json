@@ -45,6 +45,19 @@
       "createdAt": "2026-11-15T02:51:43.491Z",
       "updatedAt": "2026-11-15T07:33:12.657Z",
       "id": "sKBEsH4jcIk"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "boardId": "2dyIc1jtbjQ",
+      "title": "deploy",
+      "description": "deploy app",
+      "priority": "High",
+      "dueDate": "2026-11-16",
+      "category": "deployment",
+      "status": "Completed",
+      "createdAt": "2026-11-15T08:00:33.998Z",
+      "updatedAt": "2026-11-15T08:00:48.155Z",
+      "id": "WRypQ9AOuMg"
     }
   ],
   "activities": [
@@ -113,6 +126,28 @@
       "taskTitle": "check css",
       "createdAt": "2026-11-15T07:33:12.663Z",
       "id": "hofeI-C4lyA"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task created",
+      "description": "Created task \"deploy\" in \"Testing1\".",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "WRypQ9AOuMg",
+      "taskTitle": "deploy",
+      "createdAt": "2026-11-15T08:00:34.013Z",
+      "id": "1pAbVAvonFM"
+    },
+    {
+      "userId": "zsODh-y3QrA",
+      "action": "Task moved",
+      "description": "Moved \"deploy\" from To Do to Completed.",
+      "boardId": "2dyIc1jtbjQ",
+      "boardName": "Testing1",
+      "taskId": "WRypQ9AOuMg",
+      "taskTitle": "deploy",
+      "createdAt": "2026-11-15T08:00:48.165Z",
+      "id": "OkJsCF3C_IQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

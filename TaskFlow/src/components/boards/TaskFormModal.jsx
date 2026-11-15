@@ -6,10 +6,19 @@ const initialForm = {
   description: '',
   priority: 'Medium',
   dueDate: '',
-  category: ''
+  category: '',
+  boardId: ''
 };
 
-function TaskFormModal({ show, onClose, onSave, task, saving }) {
+function TaskFormModal({
+  show,
+  onClose,
+  onSave,
+  task,
+  saving,
+  boards = [],
+  requireBoard = false
+}) {
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState('');
 
@@ -20,7 +29,10 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
         description: task?.description || '',
         priority: task?.priority || 'Medium',
         dueDate: task?.dueDate || '',
-        category: task?.category || ''
+        category: task?.category || '',
+        boardId: task?.boardId
+          ? String(task.boardId)
+          : ''
       });
 
       setError('');
@@ -56,14 +68,30 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
       return;
     }
 
+    if (form.category.trim().length > 40) {
+      setError('Category cannot exceed 40 characters.');
+      return;
+    }
+
+    if (requireBoard && !form.boardId) {
+      setError('Please select a board for this task.');
+      return;
+    }
+
     setError('');
 
-    await onSave({
-      ...form,
-      title: form.title.trim(),
-      description: form.description.trim(),
-      category: form.category.trim()
-    });
+    try {
+      await onSave({
+        ...form,
+        title: form.title.trim(),
+        description: form.description.trim(),
+        category: form.category.trim()
+      });
+    } catch (err) {
+      setError(
+        err.message || 'Unable to save task. Please try again.'
+      );
+    }
   };
 
   return (
@@ -85,6 +113,8 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
         aria-labelledby="taskModalTitle"
       >
         <div className="card-body p-4">
+
+          {/* MODAL HEADER */}
           <div className="d-flex justify-content-between align-items-center mb-4">
             <div>
               <h4 className="fw-bold mb-1" id="taskModalTitle">
@@ -106,6 +136,45 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
           </div>
 
           <form onSubmit={handleSubmit}>
+
+            {/* BOARD SELECTOR */}
+            {requireBoard && (
+              <div className="mb-3">
+                <label className="form-label fw-semibold">
+                  Select board *
+                </label>
+
+                <select
+                  name="boardId"
+                  className="form-select"
+                  value={form.boardId}
+                  onChange={handleChange}
+                  required
+                  disabled={boards.length === 0 || saving}
+                >
+                  <option value="">
+                    Choose a board
+                  </option>
+
+                  {boards.map((board) => (
+                    <option
+                      key={board.id}
+                      value={String(board.id)}
+                    >
+                      {board.name}
+                    </option>
+                  ))}
+                </select>
+
+                {boards.length === 0 && (
+                  <small className="text-danger">
+                    You need to create a board before adding a task.
+                  </small>
+                )}
+              </div>
+            )}
+
+            {/* TASK TITLE */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 Task title *
@@ -120,9 +189,12 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
                 onChange={handleChange}
                 maxLength={100}
                 autoFocus
+                disabled={saving}
+                required
               />
             </div>
 
+            {/* DESCRIPTION */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 Description
@@ -136,12 +208,15 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
                 value={form.description}
                 onChange={handleChange}
                 maxLength={500}
+                disabled={saving}
               />
+
               <div className="text-end text-secondary small mt-1">
                 {form.description.length}/500
               </div>
             </div>
 
+            {/* PRIORITY AND DUE DATE */}
             <div className="row g-3">
               <div className="col-12 col-md-6">
                 <label className="form-label fw-semibold">
@@ -153,6 +228,7 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
                   className="form-select"
                   value={form.priority}
                   onChange={handleChange}
+                  disabled={saving}
                 >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -171,10 +247,12 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
                   className="form-control"
                   value={form.dueDate}
                   onChange={handleChange}
+                  disabled={saving}
                 />
               </div>
             </div>
 
+            {/* CATEGORY */}
             <div className="mt-3 mb-4">
               <label className="form-label fw-semibold">
                 Category
@@ -188,16 +266,23 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
                 value={form.category}
                 onChange={handleChange}
                 maxLength={40}
+                disabled={saving}
               />
             </div>
 
+            {/* ERROR MESSAGE */}
             {error && (
-              <div className="alert alert-danger py-2 small">
+              <div
+                className="alert alert-danger py-2 small"
+                role="alert"
+              >
                 {error}
               </div>
             )}
 
+            {/* ACTION BUTTONS */}
             <div className="d-flex justify-content-end gap-2">
+
               <button
                 type="button"
                 className="btn btn-light border"
@@ -210,7 +295,10 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
               <button
                 type="submit"
                 className="btn btn-primary px-4"
-                disabled={saving}
+                disabled={
+                  saving ||
+                  (requireBoard && boards.length === 0)
+                }
               >
                 {saving ? (
                   <>
@@ -223,6 +311,7 @@ function TaskFormModal({ show, onClose, onSave, task, saving }) {
                   'Create task'
                 )}
               </button>
+
             </div>
           </form>
         </div>
