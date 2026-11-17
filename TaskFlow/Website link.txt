@@ -3,6 +3,9 @@ https://taskflow-five-ivory.vercel.app/
 
 https://taskflow-kanban-board-uamh.onrender.com
 
+
+https://taskflow-kanban-board-uamh.onrender.com/boards
+
 YOUR_RENDER_URL/users
 YOUR_RENDER_URL/boards
 YOUR_RENDER_URL/tasks

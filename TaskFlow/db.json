@@ -4,8 +4,17 @@
       "name": "Kushal",
       "email": "kushalkumarreddykona@gmail.com",
       "password": "12345678",
+      "role": "admin",
       "createdAt": "2026-11-15T02:23:58.530Z",
       "id": "zsODh-y3QrA"
+    },
+    {
+      "name": "Boss",
+      "email": "boss@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "createdAt": "2026-11-16T17:19:47.732Z",
+      "id": "1VCNsfeHrao"
     }
   ],
   "boards": [
@@ -17,6 +26,15 @@
       "createdAt": "2026-11-15T02:37:12.820Z",
       "updatedAt": "2026-11-15T02:37:12.820Z",
       "id": "2dyIc1jtbjQ"
+    },
+    {
+      "name": "testing app",
+      "description": "",
+      "color": "#315EFB",
+      "userId": "1VCNsfeHrao",
+      "createdAt": "2026-11-16T17:20:27.987Z",
+      "updatedAt": "2026-11-16T17:20:27.987Z",
+      "id": "35x81iwIMYQ"
     }
   ],
   "tasks": [
@@ -58,6 +76,45 @@
       "createdAt": "2026-11-15T08:00:33.998Z",
       "updatedAt": "2026-11-15T08:00:48.155Z",
       "id": "WRypQ9AOuMg"
+    },
+    {
+      "title": "check 1",
+      "description": "uhdgwehmc",
+      "priority": "Medium",
+      "dueDate": "",
+      "category": "",
+      "boardId": "35x81iwIMYQ",
+      "userId": "1VCNsfeHrao",
+      "status": "To Do",
+      "createdAt": "2026-11-16T17:20:39.744Z",
+      "updatedAt": "2026-11-16T17:20:39.744Z",
+      "id": "BhBklHzJB1I"
+    },
+    {
+      "title": "vewihvoiuec",
+      "description": "",
+      "priority": "Low",
+      "dueDate": "",
+      "category": "",
+      "boardId": "35x81iwIMYQ",
+      "userId": "1VCNsfeHrao",
+      "status": "Review",
+      "createdAt": "2026-11-16T17:20:48.369Z",
+      "updatedAt": "2026-11-16T17:21:00.251Z",
+      "id": "dsM08TqUv7U"
+    },
+    {
+      "title": "cvmiughvmq",
+      "description": "rg",
+      "priority": "High",
+      "dueDate": "",
+      "category": "",
+      "boardId": "35x81iwIMYQ",
+      "userId": "1VCNsfeHrao",
+      "status": "In Progress",
+      "createdAt": "2026-11-16T17:20:56.631Z",
+      "updatedAt": "2026-11-16T17:20:59.036Z",
+      "id": "NzY9Lfm03OE"
     }
   ],
   "activities": [
@@ -109,7 +166,7 @@
       "userId": "zsODh-y3QrA",
       "action": "Task moved",
       "description": "Moved \"check css\" from In Progress to Review.",
-      "boardId": "2dyIc1jtbjQ",
+      "boardId": "zsODh-y3QrA",
       "boardName": "Testing1",
       "taskId": "sKBEsH4jcIk",
       "taskTitle": "check css",
@@ -148,6 +205,61 @@
       "taskTitle": "deploy",
       "createdAt": "2026-11-15T08:00:48.165Z",
       "id": "OkJsCF3C_IQ"
+    },
+    {
+      "userId": "1VCNsfeHrao",
+      "action": "Task created",
+      "description": "Created task \"check 1\".",
+      "boardId": "35x81iwIMYQ",
+      "boardName": "testing app",
+      "taskId": "BhBklHzJB1I",
+      "taskTitle": "check 1",
+      "createdAt": "2026-11-16T17:20:39.758Z",
+      "id": "rHbOmZWfpFM"
+    },
+    {
+      "userId": "1VCNsfeHrao",
+      "action": "Task created",
+      "description": "Created task \"vewihvoiuec\".",
+      "boardId": "35x81iwIMYQ",
+      "boardName": "testing app",
+      "taskId": "dsM08TqUv7U",
+      "taskTitle": "vewihvoiuec",
+      "createdAt": "2026-11-16T17:20:48.384Z",
+      "id": "dIuoKwafysA"
+    },
+    {
+      "userId": "1VCNsfeHrao",
+      "action": "Task created",
+      "description": "Created task \"cvmiughvmq\".",
+      "boardId": "35x81iwIMYQ",
+      "boardName": "testing app",
+      "taskId": "NzY9Lfm03OE",
+      "taskTitle": "cvmiughvmq",
+      "createdAt": "2026-11-16T17:20:56.645Z",
+      "id": "C6QAgPs_Abk"
+    },
+    {
+      "userId": "1VCNsfeHrao",
+      "action": "Task moved",
+      "description": "Moved \"cvmiughvmq\" from To Do to In Progress.",
+      "boardId": "35x81iwIMYQ",
+      "boardName": "testing app",
+      "taskId": "NzY9Lfm03OE",
+      "taskTitle": "cvmiughvmq",
+      "createdAt": "2026-11-16T17:20:59.047Z",
+      "id": "hg6ZzSxcn6E"
+    },
+    {
+      "userId": "1VCNsfeHrao",
+      "action": "Task moved",
+      "description": "Moved \"vewihvoiuec\" from To Do to Review.",
+      "boardId": "35x81iwIMYQ",
+      "boardName": "testing app",
+      "taskId": "dsM08TqUv7U",
+      "taskTitle": "vewihvoiuec",
+      "createdAt": "2026-11-16T17:21:00.260Z",
+      "id": "TD1fg_19w_0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

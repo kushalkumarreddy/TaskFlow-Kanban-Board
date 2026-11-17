@@ -1,3 +1,4 @@
+
 import React, {
   createContext,
   useContext,
@@ -11,49 +12,58 @@ import {
 
 const AuthContext = createContext(null);
 
-export const AuthProvider = ({ children }) => {
-
-  const [user, setUser] = useState(() => {
-
+const getSavedUser = () => {
+  try {
     const savedUser =
       localStorage.getItem('taskflow_user') ||
       sessionStorage.getItem('taskflow_user');
 
-    return savedUser ? JSON.parse(savedUser) : null;
+    if (!savedUser) return null;
 
-  });
+    const parsedUser = JSON.parse(savedUser);
+
+    return {
+      id: parsedUser.id,
+      name: parsedUser.name,
+      email: parsedUser.email,
+      role: parsedUser.role === 'admin' ? 'admin' : 'user',
+      createdAt: parsedUser.createdAt
+    };
+  } catch (error) {
+    console.error('Unable to restore login session:', error);
+
+    localStorage.removeItem('taskflow_user');
+    sessionStorage.removeItem('taskflow_user');
+
+    return null;
+  }
+};
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(getSavedUser);
 
   // Register
   const register = async (userData) => {
-
-    const response = await registerUser(userData);
-
-    return response;
-
+    return await registerUser(userData);
   };
 
   // Login
   const login = async (email, password, rememberMe) => {
-
     const response = await loginUser(email, password);
 
-    // Never store the password in the browser session
+    // Never store the password in browser storage.
     const safeUser = {
       id: response.id,
       name: response.name,
       email: response.email,
+      role: response.role === 'admin' ? 'admin' : 'user',
       createdAt: response.createdAt
     };
 
     setUser(safeUser);
 
-    const storage = rememberMe
-      ? localStorage
-      : sessionStorage;
-
-    const otherStorage = rememberMe
-      ? sessionStorage
-      : localStorage;
+    const storage = rememberMe ? localStorage : sessionStorage;
+    const otherStorage = rememberMe ? sessionStorage : localStorage;
 
     otherStorage.removeItem('taskflow_user');
 
@@ -63,42 +73,35 @@ export const AuthProvider = ({ children }) => {
     );
 
     return safeUser;
-
   };
 
   // Logout
   const logout = () => {
-
     setUser(null);
 
     localStorage.removeItem('taskflow_user');
     sessionStorage.removeItem('taskflow_user');
-
   };
 
   return (
-
     <AuthContext.Provider
       value={{
         user,
         isAuthenticated: Boolean(user),
+        isAdmin: user?.role === 'admin',
+        isUser: user?.role === 'user',
         register,
         login,
         logout
       }}
     >
-
       {children}
-
     </AuthContext.Provider>
-
   );
-
 };
 
 // Custom hook
 export const useAuth = () => {
-
   const context = useContext(AuthContext);
 
   if (!context) {
@@ -108,5 +111,4 @@ export const useAuth = () => {
   }
 
   return context;
-
 };

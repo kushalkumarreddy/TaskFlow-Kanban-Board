@@ -3,15 +3,25 @@ import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth();
+function ProtectedRoute({ children, allowedRoles }) {
+  const { user, isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
-  // Render the explicitly supplied layout or component.
-  // Otherwise, render nested routes through Outlet.
+  if (
+    allowedRoles &&
+    !allowedRoles.includes(user?.role)
+  ) {
+    return (
+      <Navigate
+        to={user?.role === 'admin' ? '/admin/dashboard' : '/dashboard'}
+        replace
+      />
+    );
+  }
+
   return children || <Outlet />;
 }
 
