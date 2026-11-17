@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../services/api';
 
 function AdminDashboardPage() {
@@ -47,7 +48,9 @@ function AdminDashboardPage() {
     return (
       <div className="text-center py-5">
         <div className="spinner-border text-primary"></div>
-        <p className="text-secondary mt-3">Loading admin dashboard...</p>
+        <p className="text-secondary mt-3">
+          Loading admin dashboard...
+        </p>
       </div>
     );
   }
@@ -98,6 +101,13 @@ function AdminDashboardPage() {
     }
   ];
 
+  const taskStatuses = [
+    'To Do',
+    'In Progress',
+    'Review',
+    'Completed'
+  ];
+
   return (
     <div>
       <div className="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
@@ -109,11 +119,12 @@ function AdminDashboardPage() {
         </div>
 
         <span className="badge text-bg-dark px-3 py-2">
-          <i className="bi bi-shield-lock me-2"></i>
+          <i className="bi bi-shield-check me-2"></i>
           Administrator
         </span>
       </div>
 
+      {/* STATISTICS */}
       <div className="row g-3 mb-4">
         {statistics.map((item) => (
           <div className="col-sm-6 col-xl-3" key={item.title}>
@@ -138,12 +149,15 @@ function AdminDashboardPage() {
       </div>
 
       <div className="row g-3">
+        {/* RECENT REGISTRATIONS */}
         <div className="col-lg-7">
           <div className="card border-0 shadow-sm h-100">
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <div>
-                  <h5 className="fw-bold mb-1">Recent Registrations</h5>
+                  <h5 className="fw-bold mb-1">
+                    Recent Registrations
+                  </h5>
                   <p className="text-secondary small mb-0">
                     Latest accounts created
                   </p>
@@ -153,7 +167,9 @@ function AdminDashboardPage() {
               </div>
 
               {recentUsers.length === 0 ? (
-                <p className="text-secondary mb-0">No registered users.</p>
+                <p className="text-secondary mb-0">
+                  No registered users.
+                </p>
               ) : (
                 <div className="table-responsive">
                   <table className="table align-middle mb-0">
@@ -168,8 +184,12 @@ function AdminDashboardPage() {
                     <tbody>
                       {recentUsers.map((account) => (
                         <tr key={account.id}>
-                          <td className="fw-semibold">{account.name}</td>
-                          <td className="text-secondary">{account.email}</td>
+                          <td className="fw-semibold">
+                            {account.name}
+                          </td>
+                          <td className="text-secondary">
+                            {account.email}
+                          </td>
                           <td>
                             <span className={`badge ${account.role === 'admin' ? 'text-bg-dark' : 'text-bg-primary'}`}>
                               {account.role === 'admin' ? 'Admin' : 'User'}
@@ -185,24 +205,23 @@ function AdminDashboardPage() {
           </div>
         </div>
 
+        {/* TASK OVERVIEW */}
         <div className="col-lg-5">
           <div className="card border-0 shadow-sm h-100">
             <div className="card-body">
               <h5 className="fw-bold mb-3">Task Overview</h5>
 
-              {[
-                { label: 'To Do', status: 'To Do' },
-                { label: 'In Progress', status: 'In Progress' },
-                { label: 'Review', status: 'Review' },
-                { label: 'Completed', status: 'Completed' }
-              ].map((item) => {
+              {taskStatuses.map((status) => {
                 const count = data.tasks.filter(
-                  (task) => task.status === item.status
+                  (task) => task.status === status
                 ).length;
 
                 return (
-                  <div className="d-flex justify-content-between border-bottom py-3" key={item.status}>
-                    <span className="text-secondary">{item.label}</span>
+                  <div
+                    className="d-flex justify-content-between border-bottom py-3"
+                    key={status}
+                  >
+                    <span className="text-secondary">{status}</span>
                     <strong>{count}</strong>
                   </div>
                 );
@@ -212,7 +231,9 @@ function AdminDashboardPage() {
                 <span className="fw-semibold">Completion rate</span>
                 <strong>
                   {data.tasks.length
-                    ? Math.round((completedTasks / data.tasks.length) * 100)
+                    ? Math.round(
+                        (completedTasks / data.tasks.length) * 100
+                      )
                     : 0}%
                 </strong>
               </div>
@@ -221,6 +242,7 @@ function AdminDashboardPage() {
         </div>
       </div>
 
+      {/* USER MANAGEMENT */}
       <div className="card border-0 shadow-sm mt-4">
         <div className="card-body d-flex flex-wrap justify-content-between align-items-center gap-3">
           <div>
@@ -230,10 +252,13 @@ function AdminDashboardPage() {
             </p>
           </div>
 
-          <a href="/admin/users" className="btn btn-primary">
+          <Link
+            to="/admin/users"
+            className="btn btn-primary"
+          >
             Manage Users
             <i className="bi bi-arrow-right ms-2"></i>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
